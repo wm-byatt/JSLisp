@@ -1,0 +1,9 @@
+{application,jslisp,
+             [{applications,[kernel,stdlib,elixir,logger]},
+              {description,"jslisp"},
+              {modules,['Elixir.Jslisp','Elixir.Jslisp.AST',
+                        'Elixir.Jslisp.Generator','Elixir.Jslisp.Tokenizer',
+                        'Elixir.Jslisp.Transformer']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {extra_applications,[logger]}]}.
