@@ -1,3 +1,5 @@
-(
-  alert "foo"
+(defun
+  foo (arg1 arg2) (
+    plus arg1 arg2
+  )
 )

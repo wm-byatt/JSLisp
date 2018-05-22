@@ -1,5 +1,4 @@
 defmodule Jslisp do
-
   def main([file_name | _other_args]) do
     compile(file_name)
   end
@@ -7,13 +6,11 @@ defmodule Jslisp do
   def compile(file_name) do
     {:ok, contents} = File.read(file_name)
 
-    output = contents
-    |> Jslisp.Tokenizer.tokenize
-    |> Jslisp.AST.from_tokens
-    |> Jslisp.Generator.from_ast
+    {:ok, tokens, _} =
+      contents
+      |> String.to_charlist()
+      |> :lexer.string()
 
-    :ok = File.write("out.js", output)
-
-    {:ok, "out.js"}
+    tokens |> :parser.parse()
   end
 end
